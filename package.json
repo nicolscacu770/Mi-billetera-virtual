@@ -1,0 +1,25 @@
+{
+  "name": "mi_billetera_virtual",
+  "version": "1.0.0",
+  "description": "esta app de backend permite realizar la gestión de los datos sobre una billetera virtual para el manejo de las finanzas personales.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "billetera",
+    "virtual",
+    "finanzas",
+    "wallet",
+    "API"
+  ],
+  "author": "Nicolas David Cacua",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.1.0"
+  }
+}
