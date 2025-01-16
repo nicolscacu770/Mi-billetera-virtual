@@ -4,7 +4,8 @@
   "description": "esta app de backend permite realizar la gestión de los datos sobre una billetera virtual para el manejo de las finanzas personales.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "billetera",
@@ -20,6 +21,7 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "nodemon": "^3.1.9",
     "prisma": "^6.1.0"
   }
 }

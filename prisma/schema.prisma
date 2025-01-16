@@ -13,18 +13,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//la relación entre Usuario y Billetera (n-m) es de manera implícita 
 model Usuario {
   id Int @id @default(autoincrement())
   nombre String 
   correo String @unique
   contraseña String 
+  billeteras Billetera[]
 }
 
 model Billetera {
   id Int @id @default(autoincrement())
   nombre_billetera String
   movimientos Movimiento[]
+  usuario Usuario[]
 }
+
+//TABLA DE RELACIÓN para indicar la relación n-m de manera explicita
+// model billeterasDeUsuarios {
+//   usuario Usuario @relation(fields: [usuarioId], references: [id])
+//   usuarioId Int
+//   billetera Billetera @relation(fields: [billeteraId], references: [id])
+//   billeteraId Int
+
+// @@id([usuarioId, billeteraId])
+// }
 
 model Movimiento {
   id Int @id @default(autoincrement())
