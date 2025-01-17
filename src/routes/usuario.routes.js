@@ -84,23 +84,6 @@ router.post('/', async (req, res) => {
 //   })
 //====================+7
 
-router.delete('/:id', async (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        const usuarioEliminado = await prisma.usuario.delete({
-            where: {
-                id: id
-            }
-        });
-        if (!usuarioEliminado) {
-            return res.status(404).json({ "msg": "usuario no encontrado" });
-        }
-        res.status(200).json( {msg: "usuario eliminado correctamente", "usuario eliminado": usuarioEliminado} );
-    } catch (error) {
-        res.status(500).json( {msg: error.message} )
-    }
-});
-
 router.put('/:id', async (req, res) => {
     try {
         const id = parseInt(req.params.id);
@@ -144,6 +127,23 @@ router.put('/asignar-billetera/:id', async (req, res) => {
         res.status(200).json(usuarioConBilletera);
     } catch (error) {
         res.status(500).json({ ms: error.message });
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const usuarioEliminado = await prisma.usuario.delete({
+            where: {
+                id: id
+            }
+        });
+        if (!usuarioEliminado) {
+            return res.status(404).json({ "msg": "usuario no encontrado" });
+        }
+        res.status(200).json( {msg: "usuario eliminado correctamente", "usuario eliminado": usuarioEliminado} );
+    } catch (error) {
+        res.status(500).json( {msg: error.message} )
     }
 });
 

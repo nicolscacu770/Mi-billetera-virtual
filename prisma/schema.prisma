@@ -29,16 +29,6 @@ model Billetera {
   usuario Usuario[]
 }
 
-//TABLA DE RELACIÓN para indicar la relación n-m de manera explicita
-// model billeterasDeUsuarios {
-//   usuario Usuario @relation(fields: [usuarioId], references: [id])
-//   usuarioId Int
-//   billetera Billetera @relation(fields: [billeteraId], references: [id])
-//   billeteraId Int
-
-// @@id([usuarioId, billeteraId])
-// }
-
 model Movimiento {
   id Int @id @default(autoincrement())
   nombre_movimiento String
@@ -50,3 +40,13 @@ model Movimiento {
   billetera Billetera @relation(fields: [billeteraId], references: [id])
   billeteraId Int
 }
+
+//TABLA DE RELACIÓN para indicar la relación n-m de manera explicita
+// model billeterasDeUsuarios {
+//   usuario Usuario @relation(fields: [usuarioId], references: [id])
+//   usuarioId Int
+//   billetera Billetera @relation(fields: [billeteraId], references: [id])
+//   billeteraId Int
+
+// @@id([usuarioId, billeteraId])
+// }
